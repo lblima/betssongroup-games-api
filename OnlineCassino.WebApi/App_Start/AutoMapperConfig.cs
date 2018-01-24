@@ -1,4 +1,7 @@
-﻿namespace OnlineCassino.WebApi.App_Start
+﻿using OnlineCassino.Domain;
+using OnlineCassino.WebApi.DTOs;
+
+namespace OnlineCassino.WebApi
 {
     public class AutoMapperConfig
     {
@@ -6,9 +9,9 @@
         {
             AutoMapper.Mapper.Initialize((config) =>
             {
-                //config.CreateMap<Topic, TopicViewModel>().ReverseMap();
-                //config.CreateMap<Post, PostViewModel>().ReverseMap();
-                //config.CreateMap<User, UserViewModel>().ReverseMap();
+                config.CreateMap<Game, GameDto>().ReverseMap();
+                config.CreateMap<GameCollection, GameCollectionDto>().ReverseMap();
+                config.CreateMap<DeviceType, DeviceTypeDto>().ReverseMap();
             });
         }
     }
