@@ -24,22 +24,52 @@ namespace OnlineCassino.Infrastructure.Migrations
             var games = new List<Game>();
             var gameCollection = new List<GameCollection>();
 
+            //Devices ==============================================
             var device1 = new DeviceType("Desktop");
             var device2 = new DeviceType("Mobile");
             var device3 = new DeviceType("Console");
 
             deviceTypes.AddRange(new DeviceType[] { device1, device2, device3 });
 
-            games.Add(new Game("Texas Hold´em", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker) { DevicesAvailability = new DeviceType[] { device1, device2 } });
-            games.Add(new Game("Stud", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker) { DevicesAvailability = new DeviceType[] { device1, device2 } });
-            games.Add(new Game("Card 21", 1, DateTime.Now.AddMonths(-1), GameCategory.Blackjack) { DevicesAvailability = new DeviceType[] { device1, device2 } });
-            games.Add(new Game("60 roulet", 1, DateTime.Now.AddMonths(-1), GameCategory.Roulette) { DevicesAvailability = new DeviceType[] { device1, device2, device3 } });
-            games.Add(new Game("Game 5", 1, DateTime.Now.AddMonths(-1), GameCategory.VideoSlots) { DevicesAvailability = new DeviceType[] { device3 } });
+            //Games =================================================
+            var game1 = new Game("Texas Hold´em", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker);
+            game1.DevicesAvailability.Add(device1);
+            game1.DevicesAvailability.Add(device2);
 
-            gameCollection.Add(new GameCollection("Game Collection 01", 1));
-            gameCollection.Add(new GameCollection("Game Collection 02", 2));
-            gameCollection.Add(new GameCollection("Game Collection 03", 3));
-            gameCollection.Add(new GameCollection("Game Collection 04", 4));
+            var game2 = new Game("Stud", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker);
+            game2.DevicesAvailability.Add(device1);
+            game2.DevicesAvailability.Add(device2);
+
+            var game3 = new Game("Card 21", 1, DateTime.Now.AddMonths(-1), GameCategory.Blackjack);
+            game3.DevicesAvailability.Add(device2);
+
+            var game4 = new Game("60 roulet", 1, DateTime.Now.AddMonths(-1), GameCategory.Roulette);
+            game4.DevicesAvailability.Add(device1);
+            game4.DevicesAvailability.Add(device2);
+
+            var game5 = new Game("Game 5", 1, DateTime.Now.AddMonths(-1), GameCategory.VideoSlots);
+            game1.DevicesAvailability.Add(device1);
+
+            games.AddRange(new Game[] { game1, game2, game3, game4, game5 });
+
+            //Game collections  ======================================
+            var gameCollection1 = new GameCollection("Game Collection 01", 1);
+            gameCollection1.Games.Add(game1);
+            gameCollection1.Games.Add(game2);
+
+            var gameCollection2 = new GameCollection("Game Collection 02", 2);
+            gameCollection2.Games.Add(game1);
+            gameCollection2.Games.Add(game2);
+            gameCollection2.Games.Add(game3);
+
+            var gameCollection3 = new GameCollection("Game Collection 03", 3);
+            gameCollection1.Games.Add(game3);
+
+            var gameCollection4 = new GameCollection("Game Collection 04", 4);
+            gameCollection1.Games.Add(game1);
+            gameCollection1.Games.Add(game4);
+
+            gameCollection.AddRange(new GameCollection[] { gameCollection1, gameCollection2, gameCollection3, gameCollection4 });
 
             foreach (var g in games)
                 context.Games.AddOrUpdate(x => x.DisplayName, g);
