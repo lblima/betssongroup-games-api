@@ -1,9 +1,8 @@
-﻿using OnlineCassino.Domain.Interfaces;
-using System;
+﻿using System;
 
 namespace OnlineCassino.Domain
 {
-    public class DeviceType: IEntity
+    public class DeviceType: BaseEntity
     {
         protected DeviceType()
         {

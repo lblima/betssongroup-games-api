@@ -1,5 +1,4 @@
-﻿using OnlineCassino.Domain.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace OnlineCassino.Domain
@@ -14,7 +13,7 @@ namespace OnlineCassino.Domain
         Blackjack = 5
     }
 
-    public class Game : IEntity
+    public class Game : BaseEntity
     {
         protected Game()
         {

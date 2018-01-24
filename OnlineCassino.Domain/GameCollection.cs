@@ -1,10 +1,9 @@
-﻿using OnlineCassino.Domain.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace OnlineCassino.Domain
 {
-    public class GameCollection : IEntity
+    public class GameCollection : BaseEntity
     {
         protected GameCollection()
         {
