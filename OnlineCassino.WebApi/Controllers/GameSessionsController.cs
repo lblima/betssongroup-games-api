@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Routing;
 
 namespace OnlineCassino.WebApi.Controllers
 {
@@ -24,9 +25,9 @@ namespace OnlineCassino.WebApi.Controllers
         // GET: api/GameSessions
         public IHttpActionResult Get()
         {
-            var gameSessions = unitOfWork.GameSessions.GetAll();
+            var gameSessions = unitOfWork.GameSessions.GetAll().ToList();
 
-            return Ok(Mapper.Map<List<NewGameSessionDto>>(gameSessions.ToList()));
+            return Ok(Mapper.Map<List<GameSessionDto>>(gameSessions));
         }
 
         // GET: api/GameSessions/5
@@ -37,7 +38,7 @@ namespace OnlineCassino.WebApi.Controllers
             if (gameSession == null)
                 return NotFound();
 
-            return Ok(Mapper.Map<NewGameSessionDto>(gameSession));
+            return Ok(Mapper.Map<GameSessionDto>(gameSession));
         }
 
         // POST: api/GameSessions
@@ -60,7 +61,10 @@ namespace OnlineCassino.WebApi.Controllers
 
                 unitOfWork.Complete();
 
-                return Ok(Mapper.Map<NewGameSessionDto>(gameSession));
+                var urlHelper = new UrlHelper(Request);
+                var gameUrl = urlHelper.Link("DefaultApi", new { controller = "Games", id = value.GameId });
+
+                return Ok(Mapper.Map<ReturnGameSessionDto>(new ReturnGameSessionDto() { GameUrl = gameUrl, SessionId = gameSession.Id }));
             }
             else
             {

@@ -233,6 +233,8 @@
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="DTOs\DeviceTypeDto.cs" />
     <Compile Include="DTOs\GameCollectionDto.cs" />
+    <Compile Include="DTOs\GameSessionDto.cs" />
+    <Compile Include="DTOs\ReturnGameSessionDto.cs" />
     <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="DTOs\GameDto.cs" />
     <Compile Include="DTOs\NewGameSessionDto.cs" />
