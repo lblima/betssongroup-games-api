@@ -11,6 +11,7 @@ namespace OnlineCassino.WebApi.DTOs
         public int DisplayIndex { get; set; }
         public DateTime ReleaseDate { get; set; }
         public GameCategory GameCategory { get; set; }
+        public Byte[] Thumbnail { get; set; }
         public IEnumerable<DeviceTypeDto> DevicesAvailability { get; set; }
         public IEnumerable<GameCollectionDto> GameCollections { get; set; }
     }

@@ -51,7 +51,7 @@ namespace OnlineCassino.WebApi.Controllers
 
                 if (unitOfWork.GameSessions.Find(x => x.IsInProgress == true && x.Game.Id == value.GameId && x.User.AccountId == user.AccountId).Count() > 0)
                 {
-                    return BadRequest("User is already playing this game");
+                    return BadRequest("The user is already playing this game");
                 }
 
                 var game = unitOfWork.Games.GetById(value.GameId);
