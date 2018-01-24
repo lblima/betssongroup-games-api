@@ -9,49 +9,49 @@ using System.Web.Http;
 
 namespace OnlineCassino.WebApi.Controllers
 {
-    public class GamesController : ApiController
+    public class GameCollectionsController : ApiController
     {
         IUnitOfWork unitOfWork;
         IIdentityProvider identityProvider;
 
-        public GamesController(IUnitOfWork unitOfWork, IIdentityProvider identityProvider)
+        public GameCollectionsController(IUnitOfWork unitOfWork, IIdentityProvider identityProvider)
         {
             this.unitOfWork = unitOfWork;
             this.identityProvider = identityProvider;
         }
 
-        // GET: api/Games
+        // GET: api/GameCollections
         public IHttpActionResult Get()
         {
-            var games = unitOfWork.Games.GetAll();
+            var gameCollections = unitOfWork.GameCollections.GetAll();
 
-            return Ok(Mapper.Map<List<GameDto>>(games.ToList()));
+            return Ok(Mapper.Map<List<GameCollectionDto>>(gameCollections.ToList()));
         }
 
-        // GET: api/Games/5
+        // GET: api/GameCollections/5
         public IHttpActionResult Get(int id)
         {
-            var game = unitOfWork.Games.GetById(id);
+            var gameCollection = unitOfWork.GameCollections.GetById(id);
 
-            if (game == null)
+            if (gameCollection == null)
                 return NotFound();
 
-            return Ok(Mapper.Map<GameDto>(game));
+            return Ok(Mapper.Map<GameCollectionDto>(gameCollection));
         }
 
-        // POST: api/Games
+        // POST: api/GameCollections
         public void Post([FromBody]string value)
         {
             throw new NotImplementedException();
         }
 
-        // PUT: api/Games/5
+        // PUT: api/GameCollections/5
         public void Put(int id, [FromBody]string value)
         {
             throw new NotImplementedException();
         }
 
-        // DELETE: api/Games/5
+        // DELETE: api/GameCollections/5
         public void Delete(int id)
         {
             throw new NotImplementedException();

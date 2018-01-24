@@ -6,6 +6,7 @@ namespace OnlineCassino.WebApi.DTOs
 {
     public class GameDto
     {
+        public int Id { get; set; }
         public string DisplayName { get; set; }
         public int DisplayIndex { get; set; }
         public DateTime ReleaseDate { get; set; }

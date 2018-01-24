@@ -38,6 +38,7 @@ namespace OnlineCassino.Domain
         public int DisplayIndex { get; set; }
         public DateTime ReleaseDate { get; set; }
         public GameCategory GameCategory { get; set; }
+        public Byte[] Thumbnail { get; set; }
         public virtual ICollection<DeviceType> DevicesAvailability { get; set; }
         public virtual ICollection<GameCollection> GameCollections { get; set; }
     }

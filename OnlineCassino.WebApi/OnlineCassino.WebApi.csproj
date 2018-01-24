@@ -228,6 +228,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GameCollectionsController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="DTOs\DeviceTypeDto.cs" />
     <Compile Include="DTOs\GameCollectionDto.cs" />
