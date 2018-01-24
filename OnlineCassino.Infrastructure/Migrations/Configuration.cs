@@ -24,11 +24,17 @@ namespace OnlineCassino.Infrastructure.Migrations
             var games = new List<Game>();
             var gameCollection = new List<GameCollection>();
 
-            games.Add(new Game("Texas Hold´em", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker));
-            games.Add(new Game("Stud", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker));
-            games.Add(new Game("Card 21", 1, DateTime.Now.AddMonths(-1), GameCategory.Blackjack));
-            games.Add(new Game("60 roulet", 1, DateTime.Now.AddMonths(-1), GameCategory.Roulette));
-            games.Add(new Game("Game 5", 1, DateTime.Now.AddMonths(-1), GameCategory.VideoSlots));
+            var device1 = new DeviceType("Desktop");
+            var device2 = new DeviceType("Mobile");
+            var device3 = new DeviceType("Console");
+
+            deviceTypes.AddRange(new DeviceType[] { device1, device2, device3 });
+
+            games.Add(new Game("Texas Hold´em", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker) { DevicesAvailability = new DeviceType[] { device1, device2 } });
+            games.Add(new Game("Stud", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker) { DevicesAvailability = new DeviceType[] { device1, device2 } });
+            games.Add(new Game("Card 21", 1, DateTime.Now.AddMonths(-1), GameCategory.Blackjack) { DevicesAvailability = new DeviceType[] { device1, device2 } });
+            games.Add(new Game("60 roulet", 1, DateTime.Now.AddMonths(-1), GameCategory.Roulette) { DevicesAvailability = new DeviceType[] { device1, device2, device3 } });
+            games.Add(new Game("Game 5", 1, DateTime.Now.AddMonths(-1), GameCategory.VideoSlots) { DevicesAvailability = new DeviceType[] { device3 } });
 
             gameCollection.Add(new GameCollection("Game Collection 01", 1));
             gameCollection.Add(new GameCollection("Game Collection 02", 2));

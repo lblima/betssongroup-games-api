@@ -14,6 +14,8 @@ namespace OnlineCassino.Infrastructure
 
         public virtual DbSet<Game> Games { get; set; }
         public virtual DbSet<GameCollection> GameCollections { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<GameSession> GameSessions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -229,10 +229,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GameCollectionsController.cs" />
+    <Compile Include="Controllers\GameSessionsController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="DTOs\DeviceTypeDto.cs" />
     <Compile Include="DTOs\GameCollectionDto.cs" />
+    <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="DTOs\GameDto.cs" />
+    <Compile Include="DTOs\GameSessionDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

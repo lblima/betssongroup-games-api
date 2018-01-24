@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using OnlineCassino.Domain.Interfaces;
 using OnlineCassino.WebApi.Models;
 using OnlineCassino.WebApi.Providers;
 using OnlineCassino.WebApi.Results;
@@ -25,8 +26,11 @@ namespace OnlineCassino.WebApi.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        IUnitOfWork unitOfWork;
+
+        public AccountController(IUnitOfWork unitOfWork)
         {
+            this.unitOfWork = unitOfWork;
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -335,6 +339,9 @@ namespace OnlineCassino.WebApi.Controllers
             {
                 return GetErrorResult(result);
             }
+
+            unitOfWork.Users.Add(new Domain.User(model.Name, user.Id));
+            unitOfWork.Complete();
 
             return Ok();
         }

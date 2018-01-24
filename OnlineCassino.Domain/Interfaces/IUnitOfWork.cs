@@ -7,6 +7,8 @@ namespace OnlineCassino.Domain.Interfaces
     {
         IGameRepository Games { get; set; }
         IGameCollectionRepository GameCollections { get; set; }
+        IUserRepository Users { get; set; }
+        IGameSessionRepository GameSessions { get; set; }
 
         DbContext Context { get; }
 
