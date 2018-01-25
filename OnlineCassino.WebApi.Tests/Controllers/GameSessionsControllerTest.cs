@@ -122,6 +122,19 @@ namespace OnlineCassino.WebApi.Tests.Controllers
         {
             // Arrange
             var controller = new GameSessionsController(mockUnitOfWork, moqIdentityProvider);
+            var config = new HttpConfiguration();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional });
+
+            controller.Request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("http://localhost:53389/api/GameSessions/"),
+                Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
+            };
 
             // Act
             var result = controller.Get();
@@ -129,9 +142,9 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
 
-            var content = ((OkNegotiatedContentResult<List<GameSessionDto>>)result).Content;
+            var content = ((OkNegotiatedContentResult<ReturnListGameSessionDto>)result).Content;
 
-            Assert.IsTrue(content.Count == 2);
+            Assert.IsTrue(content.Results.Count() == 2);
         }
 
         [TestMethod]

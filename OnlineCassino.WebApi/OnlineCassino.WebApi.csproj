@@ -247,6 +247,7 @@
     <Compile Include="DTOs\DeviceTypeDto.cs" />
     <Compile Include="DTOs\GameCollectionDto.cs" />
     <Compile Include="DTOs\ReturnGameCollectionDto.cs" />
+    <Compile Include="DTOs\ReturnListGameSessionDto.cs" />
     <Compile Include="DTOs\ReturnGameDto.cs" />
     <Compile Include="DTOs\GameSessionDto.cs" />
     <Compile Include="DTOs\ReturnGameSessionDto.cs" />

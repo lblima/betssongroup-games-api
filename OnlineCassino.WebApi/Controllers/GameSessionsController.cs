@@ -23,11 +23,43 @@ namespace OnlineCassino.WebApi.Controllers
         }
 
         // GET: api/GameSessions
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(int page = 0, int pageSize = 10)
         {
-            var gameSessions = unitOfWork.GameSessions.GetAll().ToList();
+            if (page < 0)
+                return BadRequest("page should be 0 or more");
 
-            return Ok(Mapper.Map<List<GameSessionDto>>(gameSessions));
+            if (pageSize < 0)
+                return BadRequest("pageSize should be 0 or more");
+
+            var gameSessions = unitOfWork.GameSessions.GetAll();
+
+            var totalCount = gameSessions.Count();
+            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+            var urlHelper = new UrlHelper(Request);
+            var prevLink = page > 0 ? urlHelper.Link("DefaultApi", new { controller = "GameSessions", page = page - 1, pageSize }) : "";
+            var nextLink = page < totalPages - 1 ? urlHelper.Link("DefaultApi", new { controller = "GameSessions", page = page + 1, pageSize }) : "";
+
+            //We can return the pagination at the HEADER, it´s just a design choice
+            //var paginationHeader = new
+            //{
+            //    TotalCount = totalCount,
+            //    TotalPages = totalPages,
+            //    PrevPageLink = prevLink,
+            //    NextPageLink = nextLink
+            //};
+
+            //System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
+
+            var results = Mapper.Map<List<GameSessionDto>>(gameSessions.OrderBy(x => x.Id).Skip(pageSize * page).Take(pageSize).ToList());
+
+            return Ok(new ReturnListGameSessionDto()
+            {
+                TotalCount = totalCount,
+                TotalPages = totalPages,
+                PrevPageLink = prevLink,
+                NextPageLink = nextLink,
+                Results = results
+            });
         }
 
         // GET: api/GameSessions/5

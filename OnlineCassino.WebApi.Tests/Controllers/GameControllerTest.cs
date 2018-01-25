@@ -113,7 +113,7 @@ namespace OnlineCassino.WebApi.Tests.Controllers
         }
 
         [TestMethod]
-        public void GameControllerGetByInvalidId()
+        public void GameControllerGetByInvalidIdShouldReturnNotFoundResult()
         {
             // Arrange
             var controller = new GamesController(mockUnitOfWork);
