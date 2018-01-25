@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using OnlineCassino.Domain.Interfaces;
 using OnlineCassino.WebApi.DTOs;
-using OnlineCassino.WebApi.Providers;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Routing;
 
@@ -13,12 +12,10 @@ namespace OnlineCassino.WebApi.Controllers
     public class GamesController : ApiController
     {
         IUnitOfWork unitOfWork;
-        IIdentityProvider identityProvider;
 
-        public GamesController(IUnitOfWork unitOfWork, IIdentityProvider identityProvider)
+        public GamesController(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-            this.identityProvider = identityProvider;
         }
 
         // GET: api/Games
