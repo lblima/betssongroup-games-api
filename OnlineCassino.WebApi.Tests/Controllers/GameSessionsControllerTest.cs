@@ -2,19 +2,18 @@
 using Moq;
 using OnlineCassino.Domain;
 using OnlineCassino.Domain.Interfaces;
+using OnlineCassino.WebApi.Controllers;
+using OnlineCassino.WebApi.DTOs;
 using OnlineCassino.WebApi.Providers;
 using System;
 using System.Collections.Generic;
-using System.Web;
 using System.Linq;
 using System.Linq.Expressions;
-using OnlineCassino.WebApi.Controllers;
-using System.Web.Http.Results;
-using OnlineCassino.WebApi.DTOs;
 using System.Net.Http;
-using System.Web.Http.Hosting;
+using System.Web;
 using System.Web.Http;
-using System.Web.Http.Routing;
+using System.Web.Http.Hosting;
+using System.Web.Http.Results;
 
 namespace OnlineCassino.WebApi.Tests.Controllers
 {
@@ -91,11 +90,11 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             gameCollection2.Games.Add(game3);
 
             var gameCollection3 = new GameCollection("Game Collection 03", 3);
-            gameCollection1.Games.Add(game3);
+            gameCollection3.Games.Add(game3);
 
             var gameCollection4 = new GameCollection("Game Collection 04", 4);
-            gameCollection1.Games.Add(game1);
-            gameCollection1.Games.Add(game4);
+            gameCollection4.Games.Add(game1);
+            gameCollection4.Games.Add(game4);
 
             gameCollection.AddRange(new GameCollection[] { gameCollection1, gameCollection2, gameCollection3, gameCollection4 });
 
@@ -167,11 +166,6 @@ namespace OnlineCassino.WebApi.Tests.Controllers
                 RequestUri = new Uri("http://localhost:53389/api/GameSessions/"),
                 Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
             };
-
-            //controller.Request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:53389/api/GameSessions/")
-            //{
-            //    Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
-            //};
 
             // Act
             var gameSessionDto = new NewGameSessionDto()

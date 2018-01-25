@@ -21,6 +21,12 @@ namespace OnlineCassino.WebApi.Controllers
         // GET: api/Games
         public IHttpActionResult Get(int page = 0, int pageSize = 10)
         {
+            if (page < 0)
+                return BadRequest("page should be 0 or more");
+
+            if (pageSize < 0)
+                return BadRequest("pageSize should be 0 or more");
+
             var games = unitOfWork.Games.GetAll();
 
             var totalCount = games.Count();
