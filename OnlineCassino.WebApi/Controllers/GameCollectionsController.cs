@@ -35,17 +35,27 @@ namespace OnlineCassino.WebApi.Controllers
             var prevLink = page > 0 ? urlHelper.Link("DefaultApi", new { controller = "GameCollections", page = page - 1, pageSize }) : "";
             var nextLink = page < totalPages - 1 ? urlHelper.Link("DefaultApi", new { controller = "GameCollections", page = page + 1, pageSize }) : "";
 
-            var paginationHeader = new
+            //We can return the pagination at the HEADER, it´s just a design choice
+            //var paginationHeader = new
+            //{
+            //    TotalCount = totalCount,
+            //    TotalPages = totalPages,
+            //    PrevPageLink = prevLink,
+            //    NextPageLink = nextLink
+            //};
+
+            //System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
+
+            var results = Mapper.Map<List<GameCollectionDto>>(gameCollections.OrderBy(x => x.Id).Skip(pageSize * page).Take(pageSize).ToList());
+
+            return Ok(new ReturnGameCollectionDto()
             {
                 TotalCount = totalCount,
                 TotalPages = totalPages,
                 PrevPageLink = prevLink,
-                NextPageLink = nextLink
-            };
-
-            System.Web.HttpContext.Current.Response.Headers.Add("X-Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(paginationHeader));
-
-            return Ok(Mapper.Map<List<GameCollectionDto>>(gameCollections.OrderBy(x => x.Id).Skip(pageSize * page).Take(pageSize).ToList()));
+                NextPageLink = nextLink,
+                Results = results
+            });
         }
 
         // GET: api/GameCollections/5

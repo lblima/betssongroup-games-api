@@ -162,7 +162,7 @@ namespace OnlineCassino.WebApi.Tests.Controllers
 
             controller.Request = new HttpRequestMessage
             {
-                Method = HttpMethod.Get,
+                Method = HttpMethod.Post,
                 RequestUri = new Uri("http://localhost:53389/api/GameSessions/"),
                 Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
             };

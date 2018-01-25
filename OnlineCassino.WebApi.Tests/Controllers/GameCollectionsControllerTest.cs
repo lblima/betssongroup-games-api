@@ -95,20 +95,22 @@ namespace OnlineCassino.WebApi.Tests.Controllers
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
-            controller.Request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:53389/api/GameCollections/")
+            controller.Request = new HttpRequestMessage
             {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("http://localhost:53389/api/GameCollections/"),
                 Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
             };
-
+            
             // Act
             var result = controller.Get();
 
             // Assert
             Assert.IsNotNull(result);
 
-            var content = ((OkNegotiatedContentResult<List<GameCollectionDto>>)result).Content;
+            var content = ((OkNegotiatedContentResult<ReturnGameCollectionDto>)result).Content;
 
-            Assert.IsTrue(content.Count == 5);
+            Assert.IsTrue(content.Results.Count() == 4);
         }
 
         [TestMethod]
