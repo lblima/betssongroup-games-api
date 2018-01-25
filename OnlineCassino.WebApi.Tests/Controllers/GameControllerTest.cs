@@ -7,6 +7,7 @@ using OnlineCassino.WebApi.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
@@ -109,6 +110,19 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(1, result.Content.Id);
+        }
+
+        [TestMethod]
+        public void GameControllerGetByInvalidId()
+        {
+            // Arrange
+            var controller = new GamesController(mockUnitOfWork);
+
+            // Act
+            var result = controller.Get(10);
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
         }
     }
 }
