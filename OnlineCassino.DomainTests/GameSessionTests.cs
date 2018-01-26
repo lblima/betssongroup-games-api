@@ -16,9 +16,12 @@ namespace OnlineCassino.Domain.Tests
         [TestMethod()]
         public void ShouldCreateGameSessionWithCorrectParams()
         {
-            var gameSession = new GameSession(new Game("test game", 1, DateTime.Now.AddDays(15), GameCategory.ClassicSlots), new User("Leo", "xxxxxxxxxxxxxx"));
+            var gameName = "test game";
+            var gameSession = new GameSession(new Game(gameName, 1, DateTime.Now.AddDays(15), GameCategory.ClassicSlots), new User("Leo", "xxxxxxxxxxxxxx"));
 
             Assert.IsNotNull(gameSession);
+            Assert.IsNotNull(gameSession.Game);
+            Assert.AreEqual(gameName, gameSession.Game.DisplayName);
         }
     }
 }

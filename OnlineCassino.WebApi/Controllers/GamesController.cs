@@ -66,8 +66,7 @@ namespace OnlineCassino.WebApi.Controllers
             var game = unitOfWork.Games.GetById(id);
 
             if (game == null)
-                throw new Exception("dsdsadsd");
-                //return NotFound();
+                return NotFound();
 
             return Ok(Mapper.Map<GameDto>(game));
         }
