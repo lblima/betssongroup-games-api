@@ -2,6 +2,7 @@
 using OnlineCassino.Domain;
 using OnlineCassino.Domain.Interfaces;
 using OnlineCassino.WebApi.DTOs;
+using OnlineCassino.WebApi.Filters;
 using OnlineCassino.WebApi.Providers;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Web.Http.Routing;
 
 namespace OnlineCassino.WebApi.Controllers
 {
+    [CustomExceptionHandlingAttribute]
     public class GameSessionsController : ApiController
     {
         IUnitOfWork unitOfWork;

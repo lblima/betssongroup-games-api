@@ -285,6 +285,7 @@
     <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="DTOs\GameDto.cs" />
     <Compile Include="DTOs\NewGameSessionDto.cs" />
+    <Compile Include="Filters\CustomExceptionHandlingAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using OnlineCassino.Domain.Interfaces;
 using OnlineCassino.WebApi.DTOs;
+using OnlineCassino.WebApi.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Http.Routing;
 
 namespace OnlineCassino.WebApi.Controllers
 {
+    [CustomExceptionHandlingAttribute]
     public class GameCollectionsController : ApiController
     {
         IUnitOfWork unitOfWork;

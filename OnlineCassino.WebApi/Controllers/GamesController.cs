@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using OnlineCassino.Domain.Interfaces;
 using OnlineCassino.WebApi.DTOs;
+using OnlineCassino.WebApi.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Http.Routing;
 
 namespace OnlineCassino.WebApi.Controllers
 {
+    [CustomExceptionHandlingAttribute]
     public class GamesController : ApiController
     {
         IUnitOfWork unitOfWork;
@@ -64,7 +66,8 @@ namespace OnlineCassino.WebApi.Controllers
             var game = unitOfWork.Games.GetById(id);
 
             if (game == null)
-                return NotFound();
+                throw new Exception("dsdsadsd");
+                //return NotFound();
 
             return Ok(Mapper.Map<GameDto>(game));
         }
