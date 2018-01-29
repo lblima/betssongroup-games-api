@@ -63,7 +63,11 @@ namespace OnlineCassino.WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            //I could use (bind) the repositories interfaces itself instead IUnitOfWork, but as I have only few repos, I´ve unified all repos interface in just one (IUnitOfWork)
+
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+
+            //I used this interface in order to access "System.Web.HttpContext.Current.User.Identity.GetUserId()" from controller tests
             kernel.Bind<IIdentityProvider>().To<IdentityProvider>();
         }
     }
