@@ -20,18 +20,11 @@ namespace OnlineCassino.WebApi.Tests.Controllers
     {
         private IUnitOfWork mockUnitOfWork;
 
-        private Mock<HttpContextBase> moqContext;
-        private Mock<HttpRequestBase> moqRequest;
-
         private const string rootUrl = "http://localhost:53389";
         
         [TestInitialize]
         public void SetupTests()
         {
-            moqContext = new Mock<HttpContextBase>();
-            moqRequest = new Mock<HttpRequestBase>();
-            moqContext.Setup(x => x.Request).Returns(moqRequest.Object);
-
             //Setup repositories
             var games = new List<Game>();
             var gameCollection = new List<GameCollection>();

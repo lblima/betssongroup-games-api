@@ -23,82 +23,39 @@ namespace OnlineCassino.WebApi.Tests.Controllers
         private IUnitOfWork mockUnitOfWork;
         private IIdentityProvider moqIdentityProvider;
 
-        private Mock<HttpContextBase> moqContext;
-        private Mock<HttpRequestBase> moqRequest;
-
         private const string rootUrl = "http://localhost:53389";
 
         [TestInitialize]
         public void SetupTests()
         {
-            moqContext = new Mock<HttpContextBase>();
-            moqRequest = new Mock<HttpRequestBase>();
-            moqContext.Setup(x => x.Request).Returns(moqRequest.Object);
-
             //Setup Identity provider
             var identityProviderMoq = new Mock<IIdentityProvider>();
             identityProviderMoq.Setup(x => x.GetUserId()).Returns("00000001");
             this.moqIdentityProvider = identityProviderMoq.Object;
 
             //Setup repositories
-            var deviceTypes = new List<DeviceType>();
             var games = new List<Game>();
-            var gameCollection = new List<GameCollection>();
             var gameSessions = new List<GameSession>();
 
             var user = new User("Leonardo", "xxxxxxxxxxxxxx");
 
-            //Devices ==============================================
-            var device1 = new DeviceType("Desktop");
-            var device2 = new DeviceType("Mobile");
-            var device3 = new DeviceType("Console");
-
-            deviceTypes.AddRange(new DeviceType[] { device1, device2, device3 });
-
             //Games =================================================
             var game1 = new Game("Texas Hold´em", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker);
             game1.Id = 1;
-            game1.DevicesAvailability.Add(device1);
-            game1.DevicesAvailability.Add(device2);
 
             var game2 = new Game("Stud", 1, DateTime.Now.AddMonths(-1), GameCategory.Poker);
             game2.Id = 2;
-            game2.DevicesAvailability.Add(device1);
-            game2.DevicesAvailability.Add(device2);
 
             var game3 = new Game("Card 21", 1, DateTime.Now.AddMonths(-1), GameCategory.Blackjack);
             game3.Id = 3;
-            game3.DevicesAvailability.Add(device2);
 
             var game4 = new Game("60 roulet", 1, DateTime.Now.AddMonths(-1), GameCategory.Roulette);
             game4.Id = 4;
-            game4.DevicesAvailability.Add(device1);
-            game4.DevicesAvailability.Add(device2);
 
             var game5 = new Game("Game 5", 1, DateTime.Now.AddMonths(-1), GameCategory.VideoSlots);
             game5.Id = 5;
-            game1.DevicesAvailability.Add(device1);
 
             games.AddRange(new Game[] { game1, game2, game3, game4, game5 });
-
-            //Game collections  ======================================
-            var gameCollection1 = new GameCollection("Game Collection 01", 1);
-            gameCollection1.Games.Add(game1);
-            gameCollection1.Games.Add(game2);
-
-            var gameCollection2 = new GameCollection("Game Collection 02", 2);
-            gameCollection2.Games.Add(game1);
-            gameCollection2.Games.Add(game2);
-            gameCollection2.Games.Add(game3);
-
-            var gameCollection3 = new GameCollection("Game Collection 03", 3);
-            gameCollection3.Games.Add(game3);
-
-            var gameCollection4 = new GameCollection("Game Collection 04", 4);
-            gameCollection4.Games.Add(game1);
-            gameCollection4.Games.Add(game4);
-
-            gameCollection.AddRange(new GameCollection[] { gameCollection1, gameCollection2, gameCollection3, gameCollection4 });
 
             //Game sessions
             var gameSession1 = new GameSession(game1, user) { Id = 1 };
