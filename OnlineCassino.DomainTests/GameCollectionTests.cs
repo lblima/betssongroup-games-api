@@ -16,9 +16,13 @@ namespace OnlineCassino.Domain.Tests
         [TestMethod()]
         public void ShouldCreateGameCollectionWithCorrectParams()
         {
-            var gameCollection = new GameCollection("test game callection", 1);
+            var gameCollectionName = "test game callection";
+            var gameCollectionIndex = 1;
+            var gameCollection = new GameCollection(gameCollectionName, gameCollectionIndex);
 
             Assert.IsNotNull(gameCollection);
+            Assert.AreEqual(gameCollectionIndex, gameCollection.DisplayIndex);
+            Assert.AreEqual(gameCollectionName, gameCollection.DisplayName);
         }
     }
 }
