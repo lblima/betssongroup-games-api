@@ -26,6 +26,8 @@ namespace OnlineCassino.WebApi.Tests.Controllers
         private Mock<HttpContextBase> moqContext;
         private Mock<HttpRequestBase> moqRequest;
 
+        private const string rootUrl = "http://localhost:53389";
+
         [TestInitialize]
         public void SetupTests()
         {
@@ -132,7 +134,7 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             controller.Request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("http://localhost:53389/api/GameSessions/"),
+                RequestUri = new Uri($"{rootUrl}/api/GameSessions/"),
                 Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
             };
 
@@ -176,7 +178,7 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             controller.Request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri("http://localhost:53389/api/GameSessions/"),
+                RequestUri = new Uri($"{rootUrl}/api/GameSessions/"),
                 Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
             };
 
@@ -190,7 +192,7 @@ namespace OnlineCassino.WebApi.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result.Content);
-            Assert.AreEqual("http://localhost:53389/api/Games/3", result.Content.GameUrl);
+            Assert.AreEqual($"{rootUrl}/api/Games/3", result.Content.GameUrl);
         }
     }
 }

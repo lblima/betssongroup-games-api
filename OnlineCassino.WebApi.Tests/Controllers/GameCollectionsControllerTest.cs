@@ -23,6 +23,8 @@ namespace OnlineCassino.WebApi.Tests.Controllers
         private Mock<HttpContextBase> moqContext;
         private Mock<HttpRequestBase> moqRequest;
 
+        private const string rootUrl = "http://localhost:53389";
+        
         [TestInitialize]
         public void SetupTests()
         {
@@ -98,7 +100,7 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             controller.Request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri("http://localhost:53389/api/GameCollections/"),
+                RequestUri = new Uri($"{rootUrl}/api/GameCollections/"),
                 Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
             };
             
