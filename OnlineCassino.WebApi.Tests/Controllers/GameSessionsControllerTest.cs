@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Hosting;
 using System.Web.Http.Results;
@@ -82,12 +81,7 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             // Arrange
             var controller = new GameSessionsController(mockUnitOfWork, moqIdentityProvider);
             var config = new HttpConfiguration();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional });
-
+            
             controller.Request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,

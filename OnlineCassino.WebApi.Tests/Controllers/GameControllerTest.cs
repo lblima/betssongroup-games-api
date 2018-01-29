@@ -7,9 +7,7 @@ using OnlineCassino.WebApi.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Hosting;
 using System.Web.Http.Results;
@@ -68,19 +66,12 @@ namespace OnlineCassino.WebApi.Tests.Controllers
             var controller = new GamesController(mockUnitOfWork);
             var config = new HttpConfiguration();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional });
-
             controller.Request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri($"{rootUrl}/api/Games/"),
                 Properties = { { HttpPropertyKeys.HttpConfigurationKey, config } }
             };
-
-            controller.RequestContext = new System.Web.Http.Controllers.HttpRequestContext() { Configuration = config, Url = new System.Web.Http.Routing.UrlHelper(new HttpRequestMessage(HttpMethod.Get, $"{rootUrl}/api/Games/")) };
 
             // Act
             var result = controller.Get();
