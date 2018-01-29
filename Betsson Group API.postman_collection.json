@@ -1,0 +1,311 @@
+{
+	"id": "066a6f45-196e-2c72-998e-409b0b364172",
+	"name": "Betsson Group API",
+	"description": "",
+	"order": [
+		"a961c189-5269-3966-6ed6-323bf1e91f53",
+		"157dc877-1968-7f3a-2c9d-c4dfaa6f2426",
+		"543b133d-e1bf-a70b-f474-ea9280b24a0e",
+		"9da5ff27-1354-7eeb-fcc6-75ecc0c93609",
+		"12852271-91bb-ee47-a3ad-fea639568929",
+		"a4c17bfa-712e-712b-0ea5-0ae548f25d38",
+		"56007898-dd74-1de8-9efe-320e2d85453e",
+		"101825ff-7ca2-4588-fd55-ac6d2e070cbc",
+		"eab1afd4-984e-21bd-ca63-700f2c51a743"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1516803334755,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "101825ff-7ca2-4588-fd55-ac6d2e070cbc",
+			"headers": "Authorization: Bearer aCyQRe9ol-G4Yub5RyvfBeE5XQZgYjON7xXSYQHNphFmjunA64cez693jjYsfNSSvBLRgz5TenY_DOs_MuGvusOOdqfCr4VSodrDOQhYPd7-wn3EKR8mcIn4i9rkAhnewCT6TuD0OOEJ_xeuAw_OGxmniTS6VQN3dooldvA9U58Xou3b9ju-BQEMsvbGq4g1cos4UYic3-DtXy3p0PDoDmxKRmFpZTXxPvjSKySP4MuiB9IqeC_FvIe1GHoHiUmcYjRDIOBav4PviJVhVPabytSZwMnzCIKe4FachLyIHZgpjDnaw4n1XKPmxLIUKgsRUWQVM8e6ru0_0wLxU_lSzCKs-7zJGIovlUfcaJPrw48WyTB90_sI7w-R1wCzhjlJyO9oHW_NKm8ztEwZGmVhGJFKLVUGANYsIKiZ6fRscKx3s_NKhAqBRoOH9FXCmAJCPi6s7XOklNM_YM3HzLu3aPtTH_KRhvJY2Mhew9-u57rVvr_Hgl6wjSO_w-TYz-im\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer aCyQRe9ol-G4Yub5RyvfBeE5XQZgYjON7xXSYQHNphFmjunA64cez693jjYsfNSSvBLRgz5TenY_DOs_MuGvusOOdqfCr4VSodrDOQhYPd7-wn3EKR8mcIn4i9rkAhnewCT6TuD0OOEJ_xeuAw_OGxmniTS6VQN3dooldvA9U58Xou3b9ju-BQEMsvbGq4g1cos4UYic3-DtXy3p0PDoDmxKRmFpZTXxPvjSKySP4MuiB9IqeC_FvIe1GHoHiUmcYjRDIOBav4PviJVhVPabytSZwMnzCIKe4FachLyIHZgpjDnaw4n1XKPmxLIUKgsRUWQVM8e6ru0_0wLxU_lSzCKs-7zJGIovlUfcaJPrw48WyTB90_sI7w-R1wCzhjlJyO9oHW_NKm8ztEwZGmVhGJFKLVUGANYsIKiZ6fRscKx3s_NKhAqBRoOH9FXCmAJCPi6s7XOklNM_YM3HzLu3aPtTH_KRhvJY2Mhew9-u57rVvr_Hgl6wjSO_w-TYz-im",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:53389/api/GameSessions/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1517247210178,
+			"name": "GameSessions POST",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": [],
+			"rawModeData": "{\n\t\"GameId\": \"39\"\n}"
+		},
+		{
+			"id": "12852271-91bb-ee47-a3ad-fea639568929",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:53389/api/gameCollections/?page=0&pageSize=2",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "pageSize",
+					"value": "2",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516910055449,
+			"name": "GameCollections GET",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": []
+		},
+		{
+			"id": "157dc877-1968-7f3a-2c9d-c4dfaa6f2426",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:53389/token",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "username",
+					"value": "leonardo.lima@outlook.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "Le123456789@17",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "grant_type",
+					"value": "password",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516910007390,
+			"name": "Auth - Get a valid token",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": []
+		},
+		{
+			"id": "543b133d-e1bf-a70b-f474-ea9280b24a0e",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:53389/api/games/?page=1&pageSize=2",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "pageSize",
+					"value": "2",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516910039089,
+			"name": "Games GET",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": []
+		},
+		{
+			"id": "56007898-dd74-1de8-9efe-320e2d85453e",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:53389/api/GameSessions/?page=0&pageSize=2",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "pageSize",
+					"value": "2",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516910675002,
+			"name": "GameSessions GET",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": []
+		},
+		{
+			"id": "9da5ff27-1354-7eeb-fcc6-75ecc0c93609",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:53389/api/games/36",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1517247150673,
+			"name": "Games - GET By ID",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": []
+		},
+		{
+			"id": "a4c17bfa-712e-712b-0ea5-0ae548f25d38",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:53389/api/GameCollections/25",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516831734651,
+			"name": "GameCollections - GET By ID",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": []
+		},
+		{
+			"id": "a961c189-5269-3966-6ed6-323bf1e91f53",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:53389/api/Account/Register",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516909991064,
+			"name": "Register",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": [],
+			"rawModeData": "{\r\n  \"Email\": \"leonardo.lima@outlook.com\",\r\n  \"Name\": \"Leonardo Lima\",\r\n  \"Password\": \"Le123456789@17\",\r\n  \"ConfirmPassword\": \"Le123456789@17\"\r\n}"
+		},
+		{
+			"id": "eab1afd4-984e-21bd-ca63-700f2c51a743",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:53389/api/GameSessions/8",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516910094026,
+			"name": "GameSessions GET By ID",
+			"description": "",
+			"collectionId": "066a6f45-196e-2c72-998e-409b0b364172",
+			"responses": []
+		}
+	]
+}
